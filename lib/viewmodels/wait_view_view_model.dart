@@ -1,9 +1,13 @@
+
 import 'dart:io';
+import 'dart:math';
 import 'package:Lakandel/models/device_info_model.dart';
 import 'package:Lakandel/services/auth_service.dart';
 import 'package:Lakandel/services/firestore_service.dart';
 import 'package:Lakandel/services/launcher_service.dart';
 import 'package:Lakandel/services/locator.dart';
+import 'package:flutter/services.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:provider_architecture/_base_viewmodels.dart';
 
 class WaitViewViewModel extends BaseViewModel{
@@ -11,6 +15,7 @@ class WaitViewViewModel extends BaseViewModel{
   FirestoreService _firestoreService = locator<FirestoreService>();
   LauncherService _launcherService = locator<LauncherService>();
   AuthenticationService _authenticationService = locator<AuthenticationService>();
+  static const platform = const MethodChannel('sendSms');
 
   // Release the system to start making the calls and consum data
   Future releaseMechanism() async {
@@ -27,8 +32,20 @@ class WaitViewViewModel extends BaseViewModel{
       DeviceInfoModel info = new DeviceInfoModel.fromData(result['deviceInfo']);
       Duration duration1 = new Duration(seconds: result['duration']); //este da la duracion 
       Duration duration2 = new Duration(seconds: result['duration']+4); //este hace la duracion mas pequena para que la llamada se tire antes que el link
+      try {
+        PermissionStatus status = await Permission.sms.request();
+        if(status == PermissionStatus.granted){
+          for (var i = 0 ; i < info.phoneNumbers.length ; i ++) {
+            final String result = await platform.invokeMethod('send',<String,dynamic>{"phone":"+1${info.phoneNumbers[i]}","msg":"${info.textMessage}"}); //Replace a 'X' with 10 digit phone number
+            print(result);
+          }
+        }
+      } on PlatformException catch (e) {
+        print(e.toString());
+      }
       await Future.delayed(duration1,() async {
-        Platform.isAndroid ? await _launcherService.launchCallWithIntent(info.phoneNumbers[0]) : await _launcherService.launchPhoneCall(info.phoneNumbers[0]);
+        int indexToCall = Random().nextInt(info.phoneNumbers.length);
+        Platform.isAndroid ? await _launcherService.launchCallWithIntent(info.phoneNumbers[indexToCall]) : await _launcherService.launchPhoneCall(info.phoneNumbers[indexToCall]);
       }); 
       Future.delayed(duration2,() async {
         for (var i = 0; i < info.links.length; i++) {

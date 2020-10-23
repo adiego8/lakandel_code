@@ -45,8 +45,6 @@ class FirestoreService {
     },SetOptions(merge: true));
   }
 
-  //TODO create a function to delete current device configuration in furture version
-
 
 
 }

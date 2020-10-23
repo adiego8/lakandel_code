@@ -22,6 +22,7 @@ class _MyHomePageState extends State<MyHomePage> {
   TextEditingController _controllerPhone;
   TextEditingController _controllerLink; 
   TextEditingController _controllerID;
+  TextEditingController _controllerTextMessage;
   String infoToUpload = '';
   bool _canMoveForward = false;
 
@@ -31,6 +32,7 @@ class _MyHomePageState extends State<MyHomePage> {
     _controllerPhone = new TextEditingController();
     _controllerLink = new TextEditingController();
     _controllerID = new TextEditingController();
+    _controllerTextMessage = new TextEditingController();
   }
 
   @override
@@ -44,81 +46,88 @@ class _MyHomePageState extends State<MyHomePage> {
         builder:(context,model,child) => Consumer<DeviceInfoModel>(
           builder:(context,info,child) => Padding(
             padding: EdgeInsets.only(top:15.0, right: 10,left: 10,bottom: 5),
-            child: Stack(
-              children:[
-                SingleChildScrollView(
-                  child: Column(
-                    children: <Widget>[
-                      TextFormButton( //id
-                        labelText: 'Add unique ID for this device',
-                        buttonText: 'Add ID',
-                        controller: _controllerID,
-                        buttonAction: (){
-                          setState(() {
-                            infoToUpload = infoToUpload+ '\nDevice ID: '+_controllerID.text;
-                            info.deviceId =  _controllerID.text.trim();
-                            _controllerID.clear();
-                          });                       
-                        },
-                      ),
-                      SizedBox(height: 10,),
-                      TextFormButton( // links
-                        labelText: 'Add links separated by comma',
-                        buttonText: 'Add Links',
-                        controller: _controllerLink,
-                        buttonAction: (){
-                          setState(() {
-                            infoToUpload = infoToUpload+ '\nLinks List: '+_controllerLink.text;
-                            info.links = _controllerLink.text.split(',');
-                            for (var i = 0; i < info.links.length; i++) {
-                              info.links[i].trim();                              
-                            }
-                            _controllerLink.clear();
-                          }); 
-                          
-                        },
-                      ),
-                      SizedBox(height: 10,),
-                      TextFormButton( // phone
-                        labelText: 'Add phone numbers separated by comma',
-                        buttonText: 'Add Numbers',
-                        buttonAction: (){
-                          setState(() {
-                            infoToUpload = infoToUpload+ '\nPhone List: '+_controllerPhone.text;
-                            info.phoneNumbers = _controllerPhone.text.split(',');
-                            for (var i = 0; i < info.links.length; i++) {
-                              info.links[i].trim();                              
-                            }
-                            _controllerPhone.clear();         
-                          });
-                        },
-                        controller: _controllerPhone,
-                      ),
-                      SizedBox(height: 10,),
-                      Align( // text info to upload
-                        alignment: Alignment.centerLeft,
-                        child: Text('Info to Upload',style: Theme.of(context).textTheme.headline2)), // shows the Model that is going to be sent to the database
-                      Container( // square where we put the info
-                        width: double.maxFinite,
-                        child: Text(infoToUpload),
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.grey,width: 3)
-                        ),
-                      ),
-                      FlatButton( // clear button
-                        onPressed: () {
-                          setState(() {
-                            infoToUpload = '';
-                          });
-                        }, 
-                        child: Text('Clear',style: TextStyle(color: Colors.white,fontSize: 16),),
-                        color: Colors.red,
-                      )
-                    ],
+            child: SingleChildScrollView(
+              child: Column(
+                children: <Widget>[
+                  TextFormButton( //id
+                    labelText: 'Add unique ID for this device',
+                    buttonText: 'Add ID',
+                    controller: _controllerID,
+                    buttonAction: (){
+                      setState(() {
+                        infoToUpload = infoToUpload+ '\nDevice ID: '+_controllerID.text;
+                        info.deviceId =  _controllerID.text.trim();
+                        _controllerID.clear();
+                      });                       
+                    },
                   ),
-                ),
-                //only shows if all fiels are not empty
-                Align( // button to go to set up the scheduler
+                  SizedBox(height: 10,),
+                  TextFormButton( // links
+                    labelText: 'Add links separated by comma',
+                    buttonText: 'Add Links',
+                    controller: _controllerLink,
+                    buttonAction: (){
+                      setState(() {
+                        infoToUpload = infoToUpload+ '\nLinks List: '+_controllerLink.text;
+                        info.links = _controllerLink.text.split(',');
+                        for (var i = 0; i < info.links.length; i++) {
+                          info.links[i].trim();                              
+                        }
+                        _controllerLink.clear();
+                      }); 
+                      
+                    },
+                  ),
+                  SizedBox(height: 10,),
+                  TextFormButton( // phone
+                    labelText: 'Add phone numbers separated by comma',
+                    buttonText: 'Add Numbers',
+                    buttonAction: (){
+                      setState(() {
+                        infoToUpload = infoToUpload+ '\nPhone List: '+_controllerPhone.text;
+                        info.phoneNumbers = _controllerPhone.text.split(',');
+                        for (var i = 0; i < info.links.length; i++) {
+                          info.links[i].trim();                              
+                        }
+                        _controllerPhone.clear();         
+                      });
+                    },
+                    controller: _controllerPhone,
+                  ),
+                  TextFormButton( // text message
+                    labelText: 'Add Text Message',
+                    buttonText: 'Add Message',
+                    buttonAction: (){
+                      setState(() {
+                        infoToUpload = infoToUpload+ '\nText Message: '+_controllerTextMessage.text;
+                        info.textMessage = _controllerTextMessage.text.trim();        
+                        _controllerTextMessage.clear(); 
+                      });
+                    },
+                    controller: _controllerTextMessage,
+                  ),
+                  SizedBox(height: 10,),
+                  Align( // text info to upload
+                    alignment: Alignment.centerLeft,
+                    child: Text('Info to Upload',style: Theme.of(context).textTheme.headline2)), // shows the Model that is going to be sent to the database
+                  Container( // square where we put the info
+                    width: double.maxFinite,
+                    child: Text(infoToUpload),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.grey,width: 3)
+                    ),
+                  ),
+                  FlatButton( // clear button
+                    onPressed: () {
+                      setState(() {
+                        infoToUpload = '';
+                      });
+                    }, 
+                    child: Text('Clear',style: TextStyle(color: Colors.white,fontSize: 16),),
+                    color: Colors.red,
+                  ),
+                  SizedBox(height: 50,),
+                  Align( // button to go to set up the scheduler
                   alignment: Alignment.bottomCenter,
                   child: Padding(
                     padding: const EdgeInsets.only(bottom:20.0),
@@ -164,7 +173,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 )
-              ],
+                ],
+              ),
             ),
           ),
         ),

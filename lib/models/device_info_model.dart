@@ -6,16 +6,18 @@ class DeviceInfoModel extends ChangeNotifier{
   List<dynamic> phoneNumbers;
   List<dynamic> links;
   String deviceId;
+  String textMessage;
 
   //Contructor
-  DeviceInfoModel({this.phoneNumbers,this.deviceId,this.links});
+  DeviceInfoModel({this.phoneNumbers,this.deviceId,this.links,this.textMessage});
 
   ///Serialize the data as Json File
   Map<String,dynamic> toJson(){
     return {
       'deviceId' : this.deviceId,
       'links' : this.links,
-      'phoneNumbers' : this.phoneNumbers
+      'phoneNumbers' : this.phoneNumbers,
+      'textMessage' : this.textMessage
     };
   }
 
@@ -23,6 +25,7 @@ class DeviceInfoModel extends ChangeNotifier{
   DeviceInfoModel.fromData(Map<String,dynamic> data):
   this.deviceId = data['deviceId'],
   this.links = data['links'],
+  this.textMessage = data['textMessage'],
   this.phoneNumbers = data['phoneNumbers'];
 
 

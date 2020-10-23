@@ -17,7 +17,6 @@ class WaitView extends StatefulWidget {
 class _WaitViewState extends State<WaitView> {
   TextEditingController _emailController;
   TextEditingController _passwordController;
-  bool _authorized = false;
   @override
   void initState() {
     super.initState();
@@ -32,14 +31,12 @@ class _WaitViewState extends State<WaitView> {
         appBar: AppBar(
           title: Text('Wait here'),
           actions: [
-            _authorized
-            ?FlatButton(
+            FlatButton(
               onPressed:(){
                 Navigator.pushNamed(context, MyHomePage.route);
               }, 
               child: Text('Set Up', style: TextStyle(color: Colors.white,fontSize: 16),)
-            )
-            :Container(),
+            ),
             FlatButton.icon( //button to fire the trigger 
               onPressed: () async {
                 await model.fire();
@@ -71,7 +68,6 @@ class _WaitViewState extends State<WaitView> {
                       result = await model.authenticate(_emailController.text,_passwordController.text);
                       if(result){
                         setState(() {
-                          _authorized = true;
                           _emailController.clear();
                           _passwordController.clear();
                         });
@@ -118,7 +114,7 @@ class _WaitViewState extends State<WaitView> {
   }
 
   bool _isAuthorized(WaitViewViewModel model) {
-    var result = model.isAuthorized();    
+    var result = model.isAuthorized();   
     return result;
   }
 }
