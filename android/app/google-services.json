@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "222350693211",
+    "firebase_url": "https://lakandel-be59e.firebaseio.com",
+    "project_id": "lakandel-be59e",
+    "storage_bucket": "lakandel-be59e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:222350693211:android:9200d6e5c32dcbea56807e",
+        "android_client_info": {
+          "package_name": "com.lakandel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "222350693211-1ldfiljif4a021japcv0jb6h5rgn58da.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPfoWxMx0wn2Xx-EaIiiBl-8v7Q7NYvww"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "222350693211-1ldfiljif4a021japcv0jb6h5rgn58da.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "222350693211-auk8ju2mtcldnjhrbq4lpl31vjbbdaps.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.lakandel"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
