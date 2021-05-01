@@ -1,11 +1,11 @@
 
 // import 'dart:io';
 // import 'dart:math';
-import 'package:Lakandel/models/device_info_model.dart';
-import 'package:Lakandel/services/auth_service.dart';
-import 'package:Lakandel/services/firestore_service.dart';
-//import 'package:Lakandel/services/launcher_service.dart';
-import 'package:Lakandel/services/locator.dart';
+import 'package:lakandel/models/device_info_model.dart';
+import 'package:lakandel/services/auth_service.dart';
+import 'package:lakandel/services/firestore_service.dart';
+//import 'package:lakandel/services/launcher_service.dart';
+import 'package:lakandel/services/locator.dart';
 import 'package:flutter/services.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:provider_architecture/_base_viewmodels.dart';

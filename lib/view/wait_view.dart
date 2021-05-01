@@ -1,7 +1,7 @@
 
-import 'package:Lakandel/view/lobby.dart';
-import 'package:Lakandel/viewmodels/wait_view_view_model.dart';
-import 'package:Lakandel/widgets/text_form_button.dart';
+import 'package:lakandel/view/lobby.dart';
+import 'package:lakandel/viewmodels/wait_view_view_model.dart';
+import 'package:lakandel/widgets/text_form_button.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

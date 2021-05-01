@@ -1,7 +1,7 @@
 
-import 'package:Lakandel/models/device_info_model.dart';
-import 'package:Lakandel/services/firestore_service.dart';
-import 'package:Lakandel/services/locator.dart';
+import 'package:lakandel/models/device_info_model.dart';
+import 'package:lakandel/services/firestore_service.dart';
+import 'package:lakandel/services/locator.dart';
 import 'package:provider_architecture/_base_viewmodels.dart';
 
 

@@ -1,10 +1,10 @@
 
 
-import 'package:Lakandel/models/device_info_model.dart';
-import 'package:Lakandel/services/viewstate_service.dart';
-import 'package:Lakandel/view/wait_view.dart';
-import 'package:Lakandel/viewmodels/lobby_view_model.dart';
-import 'package:Lakandel/widgets/text_form_button.dart';
+import 'package:lakandel/models/device_info_model.dart';
+import 'package:lakandel/services/viewstate_service.dart';
+import 'package:lakandel/view/wait_view.dart';
+import 'package:lakandel/viewmodels/lobby_view_model.dart';
+import 'package:lakandel/widgets/text_form_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

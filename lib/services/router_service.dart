@@ -1,6 +1,6 @@
 
-import 'package:Lakandel/view/lobby.dart';
-import 'package:Lakandel/view/wait_view.dart';
+import 'package:lakandel/view/lobby.dart';
+import 'package:lakandel/view/wait_view.dart';
 import 'package:flutter/material.dart';
 
 class MyRouterService {

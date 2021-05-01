@@ -1,7 +1,7 @@
-import 'package:Lakandel/services/auth_service.dart';
-import 'package:Lakandel/services/firestore_service.dart';
-import 'package:Lakandel/services/launcher_service.dart';
-import 'package:Lakandel/services/multi_service.dart';
+import 'package:lakandel/services/auth_service.dart';
+import 'package:lakandel/services/firestore_service.dart';
+import 'package:lakandel/services/launcher_service.dart';
+import 'package:lakandel/services/multi_service.dart';
 import 'package:get_it/get_it.dart';
 
   final GetIt locator = GetIt.instance;
