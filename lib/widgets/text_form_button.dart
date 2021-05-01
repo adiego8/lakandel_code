@@ -25,9 +25,9 @@ class _TextFormButtonState extends State<TextFormButton> {
             controller: widget.controller,            
           ),
         ),
-        FlatButton(
+        TextButton(
           child: Text(widget.buttonText,style: TextStyle(color: Colors.white,fontSize: 16),),
-          color: Colors.grey[850],
+          // color: Colors.grey[850],
           onPressed: widget.buttonAction,
         )
       ],
