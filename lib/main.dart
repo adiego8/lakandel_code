@@ -1,7 +1,7 @@
-import 'package:Lakandel/services/locator.dart';
-import 'package:Lakandel/services/providers_service.dart';
-import 'package:Lakandel/services/router_service.dart';
-import 'package:Lakandel/view/wait_view.dart';
+import 'package:lakandel/services/locator.dart';
+import 'package:lakandel/services/providers_service.dart';
+import 'package:lakandel/services/router_service.dart';
+import 'package:lakandel/view/wait_view.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

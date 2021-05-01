@@ -7,7 +7,7 @@
 
 
 
-import 'package:Lakandel/models/device_info_model.dart';
+import 'package:lakandel/models/device_info_model.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
