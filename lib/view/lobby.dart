@@ -118,24 +118,23 @@ class _MyHomePageState extends State<MyHomePage> {
                       border: Border.all(color: Colors.grey,width: 3)
                     ),
                   ),
-                  FlatButton( // clear button
+                  TextButton( // clear button
                     onPressed: () {
                       setState(() {
                         infoToUpload = '';
                       });
                     }, 
                     child: Text('Clear',style: TextStyle(color: Colors.white,fontSize: 16),),
-                    color: Colors.red,
                   ),
                   SizedBox(height: 50,),
                   Align( // button to go to set up the scheduler
                   alignment: Alignment.bottomCenter,
                   child: Padding(
                     padding: const EdgeInsets.only(bottom:20.0),
-                    child: RaisedButton(
-                      padding: EdgeInsets.symmetric(horizontal: 25,vertical: 5),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
-                      color: !model.busy(ViewState.busy) ? Colors.cyan[900].withOpacity(0.5) : Colors.white,
+                    child: ElevatedButton(
+                      // padding: EdgeInsets.symmetric(horizontal: 25,vertical: 5),
+                      // shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+                      // color: !model.busy(ViewState.busy) ? Colors.cyan[900].withOpacity(0.5) : Colors.white,
                       child: !model.busy(ViewState.busy)
                       ?Text(!_canMoveForward ? 'Schedule' : 'Continue',style: Theme.of(context).textTheme.headline1,)
                       :CupertinoActivityIndicator(),

@@ -31,13 +31,13 @@ class _WaitViewState extends State<WaitView> {
         appBar: AppBar(
           title: Text('Wait here'),
           actions: [
-            FlatButton(
+            TextButton(
               onPressed:(){
                 Navigator.pushNamed(context, MyHomePage.route);
               }, 
               child: Text('Set Up', style: TextStyle(color: Colors.white,fontSize: 16),)
             ),
-            FlatButton.icon( //button to fire the trigger 
+            TextButton.icon( //button to fire the trigger 
               onPressed: () async {
                 await model.fire();
               }, 
@@ -77,9 +77,9 @@ class _WaitViewState extends State<WaitView> {
                     }
                   },
                 ),
-                FlatButton(
+                TextButton(
                   child: Text('Sign out',style: TextStyle(color: Colors.white,fontSize: 16),),
-                  color: Colors.grey[850],
+                  // color: Colors.grey[850],
                   onPressed: () async {
                     model.signout();
                   }
