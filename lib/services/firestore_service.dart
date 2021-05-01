@@ -41,7 +41,7 @@ class FirestoreService {
     var data = await _firestoreService.collection('devices').doc('0000controles').get();
     var realData = data.data();
     await _firestoreService.collection('devices').doc('0000controles').set({
-      'trigger' : !realData['trigger']
+      'triggerPimpineo' : !realData['triggerPimpineo']
     },SetOptions(merge: true));
   }
 

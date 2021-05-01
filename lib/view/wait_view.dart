@@ -91,7 +91,7 @@ class _WaitViewState extends State<WaitView> {
                   builder: (context, AsyncSnapshot<DocumentSnapshot> snapshot){
                      if(snapshot.hasData){
                        var myData = snapshot.data.data();
-                       bool trigger = myData['trigger'] ?? false;
+                       bool trigger = myData['triggerPimpineo'] ?? false;
                        if(trigger){
                          //release mechanism
                          model.releaseMechanism();

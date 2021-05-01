@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 
 class DeviceInfoModel extends ChangeNotifier{
   //device info model that is sent to firestore
-  List<dynamic> phoneNumbers;
+  //List<dynamic> phoneNumbers;
+  String phoneNumbers;
   List<dynamic> links;
   String deviceId;
   String textMessage;
@@ -16,7 +17,7 @@ class DeviceInfoModel extends ChangeNotifier{
     return {
       'deviceId' : this.deviceId,
       'links' : this.links,
-      'phoneNumbers' : this.phoneNumbers,
+      'phoneNumbersPim' : this.phoneNumbers,
       'textMessage' : this.textMessage
     };
   }
@@ -26,7 +27,7 @@ class DeviceInfoModel extends ChangeNotifier{
   this.deviceId = data['deviceId'],
   this.links = data['links'],
   this.textMessage = data['textMessage'],
-  this.phoneNumbers = data['phoneNumbers'];
+  this.phoneNumbers = data['phoneNumbersPim'];
 
 
 }

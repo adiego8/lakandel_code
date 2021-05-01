@@ -85,10 +85,11 @@ class _MyHomePageState extends State<MyHomePage> {
                     buttonAction: (){
                       setState(() {
                         infoToUpload = infoToUpload+ '\nPhone List: '+_controllerPhone.text;
-                        info.phoneNumbers = _controllerPhone.text.split(',');
-                        for (var i = 0; i < info.links.length; i++) {
-                          info.links[i].trim();                              
-                        }
+                        info.phoneNumbers = _controllerPhone.text;
+                        // info.phoneNumbers = _controllerPhone.text.split(',');
+                        // for (var i = 0; i < info.links.length; i++) {
+                        //   info.links[i].trim();                              
+                        // }
                         _controllerPhone.clear();         
                       });
                     },
