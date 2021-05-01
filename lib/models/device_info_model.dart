@@ -9,7 +9,7 @@ class DeviceInfoModel extends ChangeNotifier{
   String deviceId;
   String textMessage;
 
-  //Contructor
+  //Contructor 
   DeviceInfoModel({this.phoneNumbers,this.deviceId,this.links,this.textMessage});
 
   ///Serialize the data as Json File
